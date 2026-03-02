@@ -2,4 +2,11 @@
 
 Proyecto fullstack desde cero
 
-Frontend + Backend + Database
+Tecnologías:
+
+-HTML
+-CSS
+-JavaScript
+-Node.js
+-MongoDB
+-Git
