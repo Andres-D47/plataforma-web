@@ -1,0 +1,15 @@
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+nav {
+    background: black;
+    color: white;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    margin-left: 10px;
+}
