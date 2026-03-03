@@ -1,5 +1,5 @@
 console.log("archivo conectado correctamente")
-const form = document.getElementById("loginform");
+const form = document.getElementById("loginForm");
 
 if (form) {
     form.addEventListener("submit", function(event) {
