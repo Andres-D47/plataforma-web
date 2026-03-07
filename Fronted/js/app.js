@@ -1,22 +1,37 @@
-console.log("archivo conectado correctamente")
-const form = document.getElementById("loginForm");
+console.log("JS conectado")
+const registerForm = document.getElementById("registerForm");
 
-if (form) {
-    form.addEventListener("submit", function(event) {
+if (registerForm) {
+    registerForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
+        const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-        const error = document.getElementById("error");
 
-        // Usuario simulado
-        const usuarioCorrecto = "admin@gmail.com";
-        const passwordCorrecto = "123456";
+        let users = JSON.parse(localStorage.getItem("users")) || [];
 
-        if (email === usuarioCorrecto && password === passwordCorrecto) {
-            window.location.href = "dashboard.html";
-        } else {
-            error.textContent = "Correo o contraseña incorrectos";
+        const userExists = users.find(user => user.email === email);
+
+        if(userExists) {
+            document.getElementById("message").innerText = "Este correo ya fue registrado";
+            return;
+
         }
+
+        const newUser = {
+            name: name,
+            email: email,
+            password: password
+        };
+
+        users.push(newUser);
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+        document.getElementById("message").innerText = "Usuario registrado correctamente";
+
+        registerForm.requestFullscreen();
+
     });
 }
